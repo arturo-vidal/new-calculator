@@ -24,6 +24,22 @@ function App() {
     }
   }
 
+  const agregarDecimal=(valor)=>{
+    const arr= input.split(" ");
+    const lastElem= arr[arr.length-1];
+    if(!lastElem.includes(".")){
+      setInput(input + ".");
+    }
+  }
+
+  const agregarCero=(valor)=>{
+    const arr= input.split(" ");
+    const lastElem= arr[arr.length-1];
+    if(lastElem[lastElem.length-1]!=="0"){
+      setInput(input + "0");
+    }
+  }
+
   return (
     <div id="app-container">
       <div id="calculator-container">
@@ -47,8 +63,8 @@ function App() {
           <Button id="multiply" onClick={agregarOperador}>*</Button>
         </div>
         <div className="row">
-        <Button id="decimal" >.</Button>
-          <Button id="zero" >0</Button>
+        <Button id="decimal" onClick={agregarDecimal}>.</Button>
+          <Button id="zero" onClick={agregarCero}>0</Button>
           <Button id="divide" onClick={agregarOperador}>/</Button>
           <Button id="equals" >=</Button>
         </div>
