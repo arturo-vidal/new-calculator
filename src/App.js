@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Display from './components/Display';
 import Button from './components/Button';
+import Clear from './components/Clear';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
 
   const agregarOperador=(valor)=>{
     const lastElem= input[input.length-1];
-    if((lastElem===" ") && (valor!=="0")){
+    if((lastElem===" ") && (valor!=="-")){
       setInput(input.replace(input[input.length-2], valor))
     }else{
       setInput(input + " " + valor + " ");
@@ -37,6 +38,18 @@ function App() {
     const lastElem= arr[arr.length-1];
     if(lastElem[lastElem.length-1]!=="0"){
       setInput(input + "0");
+    }
+  }
+
+  const clearAllInput=()=>{
+    setInput("0");
+  }
+
+  const calcularResultado=()=>{
+    if(input!=="0"){
+      setInput(eval(input));
+    }else{
+      setInput("error");
     }
   }
 
@@ -66,8 +79,9 @@ function App() {
         <Button id="decimal" onClick={agregarDecimal}>.</Button>
           <Button id="zero" onClick={agregarCero}>0</Button>
           <Button id="divide" onClick={agregarOperador}>/</Button>
-          <Button id="equals" >=</Button>
+          <Button id="equals" onClick={calcularResultado}>=</Button>
         </div>
+        <Clear handleClear={clearAllInput}>Clear</Clear>
       </div>
     </div>
   );
