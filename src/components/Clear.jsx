@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Clear.css';
 
 function Clear(props){
   return(

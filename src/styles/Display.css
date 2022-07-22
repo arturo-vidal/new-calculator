@@ -1,0 +1,10 @@
+#display{
+  border: 3px solid #3df27f;
+  border-radius: 5px;
+  margin: 3px;
+  width: 97%;
+  height: 8vh;
+  text-align: end;
+  background-color: #272e29;
+  font-size: 190%;
+}

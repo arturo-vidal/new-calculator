@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/Button.css';
 
 const esOperador=(valor)=>{
   return isNaN(valor) && (valor!==".") && (valor!=="=");
